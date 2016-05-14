@@ -11,25 +11,38 @@ header {
 
 #game-logo {
   width: 10em;
-  margin: 3em 6em 3em 3em;
+  margin: 3em;
   float: left;
 }
 
 #title-container {
   width: 45%;
   height: 10em;
-  float: left;
+  float: right;
   text-align: center;
-  margin-left: 6em;
+  margin-right: 2em;
 }
 
 #title {
   font-size: 5em;
+  color: white;
   display: inline-block;
 }
 
 #main-container {
-  width: 70%;
-  height: 900px;
-  margin: 0 auto;
+  width: 45%;
+  height: 740px;
+  margin: 3em auto;
+  clear: both;
+}
+
+.card.easy {
+  margin: .2em 1.8%;
+  width: 13%;
+  height: 2.5em;
+  border-radius: .2em;
+  float: left;
+  text-align: center;
+  background-color: white;
+  font-size: 3em;
 }
