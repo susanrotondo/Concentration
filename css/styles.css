@@ -1,4 +1,35 @@
 body {
+  width: 100%;
   background-color: green;
   font-family: 'Candal', sans-serif;
+  font-size: 14px;
+}
+
+header {
+  width: 100%;
+}
+
+#game-logo {
+  width: 10em;
+  margin: 3em 6em 3em 3em;
+  float: left;
+}
+
+#title-container {
+  width: 45%;
+  height: 10em;
+  float: left;
+  text-align: center;
+  margin-left: 6em;
+}
+
+#title {
+  font-size: 5em;
+  display: inline-block;
+}
+
+#main-container {
+  width: 70%;
+  height: 900px;
+  margin: 0 auto;
 }
