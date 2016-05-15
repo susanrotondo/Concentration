@@ -29,14 +29,14 @@ header {
   display: inline-block;
 }
 
-#main-container {
+#card-container {
   width: 45%;
   height: 740px;
   margin: 3em auto;
   clear: both;
 }
 
-.card.easy {
+.card {
   margin: .2em 1.8%;
   width: 13%;
   height: 2.5em;
@@ -45,4 +45,14 @@ header {
   text-align: center;
   background-color: white;
   font-size: 3em;
+}
+
+.red {
+  color: red;
+  border: .15em solid red;
+}
+
+.blue {
+  color: blue;
+  border: .15em solid blue;
 }
