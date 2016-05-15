@@ -9,15 +9,9 @@ header {
   width: 100%;
 }
 
-#game-logo {
-  width: 10em;
-  margin: 3em;
-  float: left;
-}
-
 #title-container {
   width: 45%;
-  height: 10em;
+  height: 6em;
   float: right;
   text-align: center;
   margin-right: 2em;
@@ -27,6 +21,7 @@ header {
   font-size: 5em;
   color: white;
   display: inline-block;
+  margin: 0;
 }
 
 #card-container {
@@ -36,23 +31,30 @@ header {
   clear: both;
 }
 
-.card {
-  margin: .2em 1.8%;
+.card-back {
+  margin: .2em 1%;
   width: 13%;
   height: 2.5em;
   border-radius: .2em;
   float: left;
   text-align: center;
-  background-color: white;
+  background-color: grey;
+  border: .10em solid white;
   font-size: 3em;
+  background-image: url(../assets/q-mark.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .red {
   color: red;
-  border: .15em solid red;
+  border: .10em solid red;
+  background-image: none;
 }
 
 .blue {
   color: blue;
-  border: .15em solid blue;
+  border: .10em solid blue;
+  background-image: none;
 }
