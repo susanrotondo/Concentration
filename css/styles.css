@@ -53,11 +53,11 @@ header {
 .red {
   color: red;
   border: .10em solid red;
-  background-image: none;
+  font-size: 3em;
 }
 
 .blue {
   color: blue;
   border: .10em solid blue;
-  background-image: none;
+  font-size: 3em;
 }

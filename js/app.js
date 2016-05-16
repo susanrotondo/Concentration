@@ -30,8 +30,6 @@ function shuffle(orderedGrid) {
     shuffledGrid.push(orderedGrid[randomIndex]);
     orderedGrid.splice(randomIndex, 1);
   }
-  // console.log(shuffledGrid.length);
-  // console.log(shuffledGrid);
   return shuffledGrid;
 }
 
@@ -41,6 +39,7 @@ function shuffle(orderedGrid) {
 function Card(number, colour) {
   this.number = number;
   this.colour = colour;
+  this.element = '<div class="card back"></div>';
 }
 
 /////////////////////////
@@ -50,9 +49,8 @@ var $play = $('#play-button');
 var $cardContainer = $('#card-container')
 
 $play.on('click',function() {
-  // var grid = deal();
   var grid = shuffle(deal());
   $.each(grid, function(index, value) {
-    $cardContainer.append('<div class="card back"></div>');
+    $cardContainer.append(value.element);
   });
 });
