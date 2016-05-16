@@ -32,18 +32,19 @@ header {
 }
 
 .card {
-  margin: .4em 1%;
+  margin: 5px 1%;
   width: 12%;
-  height: 7em;
-  border-radius: .4em;
+  /*height: 7em;*/
+  border-radius: 5px;
   float: left;
   text-align: center;
   background-color: white;
 }
 
 .back {
+  height: 98px;
   background-color: grey;
-  border: .4em solid white;
+  border: 6px solid white;
   background-image: url(../assets/q-mark.png);
   background-size: 80%;
   background-repeat: no-repeat;
@@ -52,10 +53,12 @@ header {
 
 .red {
   color: red;
-  border: .4em solid red;
+  border: 6px solid red;
+  font-size: 75px;
 }
 
 .blue {
   color: blue;
-  border: .4em solid blue;
+  border: 6px solid blue;
+  font-size: 75px;
 }

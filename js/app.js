@@ -55,12 +55,12 @@ $play.on('click',function() {
   $.each(grid, function(index, value) {
     $cardContainer.append(value.element);
   });
-
   //div.card click event
   $('div.card').on('click',function() {
     var selectedIndex = $('div.card').index(this);
     var selectedNumber = grid[selectedIndex].number;
+    var selectedColour = grid[selectedIndex].colour;
     $(this).text(selectedNumber);
-    $(this).toggleClass('red back');
+    $(this).toggleClass(selectedColour + ' back');
     });
 });
