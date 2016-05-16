@@ -42,6 +42,14 @@ function Card(number, colour) {
   this.element = '<div class="card back"></div>';
 }
 
+/////////////////////////////
+//Check for match function
+////////////////////////////
+//****** RETURN A BOOLEAN ********
+function isMatch(arrayOfVals) {
+  return arrayOfVals[0][0] === arrayOfVals[1][0] && arrayOfVals[0][1] === arrayOfVals[1][1];
+}
+
 //////////////////////////////
 //jQuery event functions begin
 //////////////////////////////
@@ -56,11 +64,32 @@ $play.on('click',function() {
     $cardContainer.append(value.element);
   });
   //div.card click event
+  var numClicks = 0;
+  var clickedVals = [[], []];
   $('div.card').on('click',function() {
-    var selectedIndex = $('div.card').index(this);
-    var selectedNumber = grid[selectedIndex].number;
-    var selectedColour = grid[selectedIndex].colour;
+    var $selectedIndex = $('div.card').index(this);
+    var selectedNumber = grid[$selectedIndex].number;
+    var selectedColour = grid[$selectedIndex].colour;
+    clickedVals[numClicks].push(selectedNumber);
+    clickedVals[numClicks].push(selectedColour);
+    numClicks += 1;
     $(this).text(selectedNumber);
     $(this).toggleClass(selectedColour + ' back');
+    if(numClicks === 2) {
+      if(isMatch(clickedVals)) {
+        //if a match
+        //increment player score
+        //remove cards from play/board (function)
+        //check for winner (function)
+        //if no winner, player gets another turn
+        console.log('match');
+      } else {
+        //if NO match
+        //turn cards back over
+        //switch players
+        console.log('no match');
+      }
+      numClicks = 0;
+    }
     });
 });
