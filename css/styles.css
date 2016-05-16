@@ -25,22 +25,25 @@ header {
 }
 
 #card-container {
-  width: 45%;
+  width: 50%;
   height: 740px;
   margin: 3em auto;
   clear: both;
 }
 
-.card-back {
-  margin: .2em 1%;
-  width: 13%;
-  height: 2.5em;
-  border-radius: .2em;
+.card {
+  margin: .4em 1%;
+  width: 12%;
+  height: 7em;
+  border-radius: .4em;
   float: left;
   text-align: center;
+  background-color: white;
+}
+
+.back {
   background-color: grey;
-  border: .10em solid white;
-  font-size: 3em;
+  border: .4em solid white;
   background-image: url(../assets/q-mark.png);
   background-size: 80%;
   background-repeat: no-repeat;

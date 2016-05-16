@@ -53,6 +53,6 @@ $play.on('click',function() {
   // var grid = deal();
   var grid = shuffle(deal());
   $.each(grid, function(index, value) {
-    $cardContainer.append('<div class="card-back"></div>');
+    $cardContainer.append('<div class="card back"></div>');
   });
 });
