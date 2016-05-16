@@ -1,3 +1,14 @@
+var game = {
+  player1: {
+    score: 0
+  },
+  player2: {
+    score: 0
+  }
+}
+
+var currentPlayer = game.player1;
+
 var mode = 'easy';
 var colours = [];
 var numbers = 9;
@@ -50,6 +61,17 @@ function isMatch(arrayOfVals) {
   return arrayOfVals[0][0] === arrayOfVals[1][0] && arrayOfVals[0][1] === arrayOfVals[1][1];
 }
 
+/////////////////////////
+//Switch turns function
+/////////////////////////
+function switchTurns() {
+  if(currentPlayer == game.player1) {
+    currentPlayer = game.player2;
+  } else {
+    currentPlayer = game.player1;
+  }
+}
+
 //////////////////////////////
 //jQuery event functions begin
 //////////////////////////////
@@ -77,17 +99,18 @@ $play.on('click',function() {
     $(this).toggleClass(selectedColour + ' back');
     if(numClicks === 2) {
       if(isMatch(clickedVals)) {
+        console.log('match');
         //if a match
         //increment player score
+        currentPlayer.score += 1;
         //remove cards from play/board (function)
         //check for winner (function)
         //if no winner, player gets another turn
-        console.log('match');
       } else {
+        console.log('no match');
         //if NO match
         //turn cards back over
         //switch players
-        console.log('no match');
       }
       numClicks = 0;
     }
