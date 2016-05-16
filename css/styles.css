@@ -52,12 +52,10 @@ header {
 
 .red {
   color: red;
-  border: .10em solid red;
-  font-size: 3em;
+  border: .4em solid red;
 }
 
 .blue {
   color: blue;
-  border: .10em solid blue;
-  font-size: 3em;
+  border: .4em solid blue;
 }

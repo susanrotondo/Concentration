@@ -42,15 +42,25 @@ function Card(number, colour) {
   this.element = '<div class="card back"></div>';
 }
 
-/////////////////////////
-//jQuery event functions
-/////////////////////////
-var $play = $('#play-button');
-var $cardContainer = $('#card-container')
+//////////////////////////////
+//jQuery event functions begin
+//////////////////////////////
 
+var $play = $('#play-button');
+var $cardContainer = $('#card-container');
+
+//Play button click event
 $play.on('click',function() {
   var grid = shuffle(deal());
   $.each(grid, function(index, value) {
     $cardContainer.append(value.element);
   });
+
+  //div.card click event
+  $('div.card').on('click',function() {
+    var selectedIndex = $('div.card').index(this);
+    var selectedNumber = grid[selectedIndex].number;
+    $(this).text(selectedNumber);
+    $(this).toggleClass('red back');
+    });
 });
