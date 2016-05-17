@@ -54,7 +54,7 @@ header {
   border-radius: 5px;
   float: left;
   text-align: center;
-  background-color: white;
+  /*background-color: white;*/
 }
 
 .back {
@@ -69,12 +69,14 @@ header {
 
 .red {
   color: red;
+  background-color: white;
   border: 6px solid red;
   font-size: 75px;
 }
 
 .blue {
   color: blue;
+  background-color: white;
   border: 6px solid blue;
   font-size: 75px;
 }

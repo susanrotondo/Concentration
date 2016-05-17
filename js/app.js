@@ -38,14 +38,14 @@ function shuffle(orderedGrid) {
 //Check for match function
 ////////////////////////////
 function isMatch(clickedCardsArray) {
-  // return a boolen
+  // returns a boolen
   return clickedCardsArray[0].text() === clickedCardsArray[1].text() && clickedCardsArray[0].attr("class") === clickedCardsArray[1].attr("class");
 }
 
 /////////////////////////
 //Switch turns function
 /////////////////////////
-function switchTurns() {
+function switchPlayers() {
   if(currentPlayer == game.player1) {
     currentPlayer = game.player2;
   } else {
@@ -60,11 +60,13 @@ function displayPlayer() {
   $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
 }
 
-/////////////////////////
-//Card object generator
-/////////////////////////
+/////////////////////////////////////////////
+//Card object generator --
+//contains Card instance.element click event
+/////////////////////////////////////////////
 var counter = 0;
-// Currently not using the counter/id of card-counterNum for anything, but maybe it will be useful for
+// Currently not using the counter/id of card-counterNum for anything,
+//but maybe it will be useful for
 // shuffling the ordering of the layout???
 var numClicks = 0;
 var clickedCards = [];
@@ -88,8 +90,17 @@ function Card(number, colour){
         displayPlayer();
       } else {
         console.log('no match!');
+        //refactor 4 reset lines below to forEach on clickedCards array???
+        //use something other than toggleClass so that the second card can be seen before being flipped back over???
+        clickedCards[0].text('');
+        clickedCards[1].text('');
+        clickedCards[0].toggleClass('back ' + $(this).data('colour'));
+        clickedCards[1].toggleClass('back ' + $(this).data('colour'));
+        switchPlayers();
+        displayPlayer();
       }
     numClicks = 0;
+    clickedCards = [];
     }
 	});
 }
@@ -107,35 +118,3 @@ $('#play-button').on('click', function(){
     }
   }
 });
-
-// $play.on('click',function() {
-//   displayPlayer();
-//   var grid = shuffle(deal());
-//   $.each(grid, function(index, value) {
-//     $cardContainer.append(value.element);
-//   });
-  //div.card click event
-  // var numClicks = 0;
-  // var clickedCards = [];
-  // $('div.card').on('click',function() {
-  //   clickedCards.push(this);
-  //   var $selectedIndex = $('div.card').index(this);
-  //   var selectedNumber = grid[$selectedIndex].number;
-  //   var selectedColour = grid[$selectedIndex].colour;
-  //   numClicks += 1;
-  //   $(this).text(selectedNumber);
-  //   $(this).toggleClass(selectedColour + ' back');
-  //   if(numClicks === 2) {
-  //     if(isMatch(clickedCards)) {
-  //       console.log('match');
-  //       currentPlayer.score += 1;
-  //     } else {
-  //       console.log('no match');
-  //       switchTurns();
-  //       displayPlayer();
-  //     }
-  //     clickedCards = [];
-  //     numClicks = 0;
-  //   }
-  //   });
-// });
