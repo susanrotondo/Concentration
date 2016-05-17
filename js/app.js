@@ -70,7 +70,11 @@ function Card(number, colour){
 	$('#card-container').append('<div id="card-' + counter + '" class="card back" data-number=' + number + ' data-colour=' + colour + ' ></div>');
 	this.element = $('.card').last()
 	this.element.on('click', function(){
-    $(this).text($(this).data('number'));
+    if($(this).text() != '') {
+      $(this).text('');
+    } else {
+      $(this).text($(this).data('number'));
+    }
     $(this).toggleClass('back ' + $(this).data('colour'));
 	});
 }
