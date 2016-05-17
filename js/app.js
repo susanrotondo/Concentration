@@ -1,9 +1,11 @@
 var game = {
   player1: {
-    score: 0
+    score: 0,
+    name: 'Player 1'
   },
   player2: {
-    score: 0
+    score: 0,
+    name: 'Player 2'
   }
 }
 
@@ -57,8 +59,8 @@ function Card(number, colour) {
 //Check for match function
 ////////////////////////////
 //****** RETURN A BOOLEAN ********
-function isMatch(arrayOfVals) {
-  return arrayOfVals[0][0] === arrayOfVals[1][0] && arrayOfVals[0][1] === arrayOfVals[1][1];
+function isMatch(clickedCardsArray) {
+  return clickedCardsArray[0].innerHTML === clickedCardsArray[1].innerHTML && clickedCardsArray[0].className === clickedCardsArray[1].className;
 }
 
 /////////////////////////
@@ -72,6 +74,13 @@ function switchTurns() {
   }
 }
 
+/////////////////////////////////
+//Current player display function
+/////////////////////////////////
+function displayPlayer() {
+  $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
+}
+
 //////////////////////////////
 //jQuery event functions begin
 //////////////////////////////
@@ -81,37 +90,45 @@ var $cardContainer = $('#card-container');
 
 //Play button click event
 $play.on('click',function() {
+  displayPlayer();
   var grid = shuffle(deal());
   $.each(grid, function(index, value) {
     $cardContainer.append(value.element);
   });
   //div.card click event
   var numClicks = 0;
-  var clickedVals = [[], []];
+  var clickedCards = [];
   $('div.card').on('click',function() {
+    clickedCards.push(this);
     var $selectedIndex = $('div.card').index(this);
     var selectedNumber = grid[$selectedIndex].number;
     var selectedColour = grid[$selectedIndex].colour;
-    clickedVals[numClicks].push(selectedNumber);
-    clickedVals[numClicks].push(selectedColour);
     numClicks += 1;
     $(this).text(selectedNumber);
     $(this).toggleClass(selectedColour + ' back');
     if(numClicks === 2) {
-      if(isMatch(clickedVals)) {
+      if(isMatch(clickedCards)) {
         console.log('match');
-        //if a match
-        //increment player score
         currentPlayer.score += 1;
-        //remove cards from play/board (function)
-        //check for winner (function)
-        //if no winner, player gets another turn
+        //make cards unclickable (OR remove cards from /board)
+        //** IF ONE PAIR LEFT, AUTO TURN OVER AND GIVE POINTS TO CURRENT PLAYER **
+        //   ^^^ THIS WILL BE THE POINT AT WHICH WINNER IS DETERMINED ^^^
+        //if no winner, current player gets another turn
       } else {
         console.log('no match');
-        //if NO match
         //turn cards back over
+        // for(var i = 0; i < clickedCards.length; i++) {
+        //   clickedCards[i].classList.toggle(selectedColour);
+        //   clickedCards[i].classList.toggle('back');
+        //   clickedCards[i].innerHTML = '';
+        //   below doesn't work either -- toggles off all classes
+        //   $(clickedCards[i]).toggleClass(clickedCards[i].className);
+        // }
         //switch players
+        switchTurns();
+        displayPlayer();
       }
+      clickedCards = [];
       numClicks = 0;
     }
     });

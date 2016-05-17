@@ -3,6 +3,7 @@ body {
   background-color: green;
   font-family: 'Candal', sans-serif;
   font-size: 14px;
+  margin: 0;
 }
 
 header {
@@ -10,11 +11,12 @@ header {
 }
 
 #title-container {
-  width: 45%;
+  width: 50%;
   height: 6em;
-  float: right;
+  float: left;
   text-align: center;
-  margin-right: 2em;
+  margin-left: 1em;
+  margin-bottom: 20px;
 }
 
 #title {
@@ -24,17 +26,31 @@ header {
   margin: 0;
 }
 
+#info-display {
+  width: 47%;
+  height: 6em;
+  float: left;
+  text-align: right;
+  margin-right: 1em;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#play-button {
+  display: inline-block;
+  clear: both;
+}
+
 #card-container {
   width: 50%;
   height: 740px;
-  margin: 3em auto;
+  margin: 0 auto;
   clear: both;
 }
 
 .card {
   margin: 5px 1%;
   width: 12%;
-  /*height: 7em;*/
   border-radius: 5px;
   float: left;
   text-align: center;
