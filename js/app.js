@@ -84,18 +84,25 @@ function Card(number, colour){
     $(this).toggleClass('back ' + $(this).data('colour'));
     clickedCards.push($(this));
     if(numClicks == 2) {
+      //after two cards have been picked
       if(isMatch(clickedCards)) {
+        //if is a match
         console.log('a match!');
         currentPlayer.score += 1;
+        //turn off click event for matched cards
+        clickedCards.forEach(function(element, index, array) {
+          element.off();
+        });
         displayPlayer();
       } else {
+        //if no match
         console.log('no match!');
-        //refactor 4 reset lines below to forEach on clickedCards array???
         //use something other than toggleClass so that the second card can be seen before being flipped back over???
-        clickedCards[0].text('');
-        clickedCards[1].text('');
-        clickedCards[0].toggleClass('back ' + $(this).data('colour'));
-        clickedCards[1].toggleClass('back ' + $(this).data('colour'));
+        //no match, so turn cards back over
+        clickedCards.forEach(function(element, index, array) {
+          element.text('');
+          element.toggleClass('back ' + element.data('colour'));
+        });
         switchPlayers();
         displayPlayer();
       }
