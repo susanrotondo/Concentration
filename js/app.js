@@ -10,7 +10,8 @@ var game = {
 }
 
 var currentPlayer = game.player1;
-
+// Once option to choose difficulty mode functional, move into game object initialized to mode: ''
+// Update based on player mode selection?????
 var mode = 'easy';
 var colours = [];
 var numbers = 6;
@@ -19,6 +20,8 @@ var cardGrid = [];
 if(mode === 'easy') {
   colours = ['red', 'blue'];
 }
+
+
 
 
 /////////////////////////////////////////////////
@@ -58,6 +61,13 @@ function switchPlayers() {
 /////////////////////////////////
 function displayPlayer() {
   $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
+}
+
+/////////////////////////////////
+//Update score function
+/////////////////////////////////
+function updateScore() {
+
 }
 
 /////////////////////////////////////////////
@@ -116,6 +126,8 @@ function Card(number, colour){
 //Play button click event, calls Card object generator
 //////////////////////////////////////////////////////
 $('#play-button').on('click', function(){
+  $('#player-one').text(game.player1.score);
+  $('#player-two').text(game.player2.score);
   displayPlayer();
   for(var i = 0; i < colours.length; i++) {
     for(var j = 1; j <= numbers; j++) {

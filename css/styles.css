@@ -16,7 +16,7 @@ header {
   float: left;
   text-align: center;
   margin-left: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #title {
@@ -27,13 +27,14 @@ header {
 }
 
 #info-display {
-  width: 47%;
-  height: 6em;
-  float: left;
+  width: 40%;
+  float: right;
   text-align: right;
   margin-right: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top: 20px;
   color: white;
+  font-size: 3em;
 }
 
 #play-button {
@@ -41,20 +42,37 @@ header {
   clear: both;
 }
 
+#space {
+  width: 100%;
+  height: 80px;
+  clear: both;
+}
+
+.score-display {
+  width: 21%;
+  height: 300px;
+  float: left;
+  margin: 0 1.8%;
+  text-align: center;
+  color: white;
+}
+
+.score {
+  font-size: 3em;
+}
+
 #card-container {
   width: 50%;
   height: 740px;
-  margin: 0 auto;
-  clear: both;
+  float: left;
 }
 
 .card {
   margin: 5px 1%;
-  width: 12%;
+  width: 12.8%;
   border-radius: 5px;
   float: left;
   text-align: center;
-  /*background-color: white;*/
 }
 
 .back {
