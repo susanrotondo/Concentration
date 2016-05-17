@@ -37,10 +37,9 @@ function shuffle(orderedGrid) {
 /////////////////////////////
 //Check for match function
 ////////////////////////////
-
-//****** RETURN A BOOLEAN ********
 function isMatch(clickedCardsArray) {
-  return clickedCardsArray[0].innerHTML === clickedCardsArray[1].innerHTML && clickedCardsArray[0].className === clickedCardsArray[1].className;
+  // return a boolen
+  return clickedCardsArray[0].text() === clickedCardsArray[1].text() && clickedCardsArray[0].attr("class") === clickedCardsArray[1].attr("class");
 }
 
 /////////////////////////
@@ -65,17 +64,33 @@ function displayPlayer() {
 //Card object generator
 /////////////////////////
 var counter = 0;
+// Currently not using the counter/id of card-counterNum for anything, but maybe it will be useful for
+// shuffling the ordering of the layout???
+var numClicks = 0;
+var clickedCards = [];
 function Card(number, colour){
   counter += 1;
 	$('#card-container').append('<div id="card-' + counter + '" class="card back" data-number=' + number + ' data-colour=' + colour + ' ></div>');
 	this.element = $('.card').last()
 	this.element.on('click', function(){
+    numClicks += 1;
     if($(this).text() != '') {
       $(this).text('');
     } else {
       $(this).text($(this).data('number'));
     }
     $(this).toggleClass('back ' + $(this).data('colour'));
+    clickedCards.push($(this));
+    if(numClicks == 2) {
+      if(isMatch(clickedCards)) {
+        console.log('a match!');
+        currentPlayer.score += 1;
+        displayPlayer();
+      } else {
+        console.log('no match!');
+      }
+    numClicks = 0;
+    }
 	});
 }
 
@@ -86,6 +101,7 @@ $('#play-button').on('click', function(){
   displayPlayer();
   for(var i = 0; i < colours.length; i++) {
     for(var j = 1; j <= numbers; j++) {
+      // Currently NOT using the cardGrid for anything; how to use to shuffle now that code has changed???
       cardGrid.push(new Card(j, colours[i]));
       cardGrid.push(new Card(j, colours[i]));
     }
