@@ -22,23 +22,6 @@ if(mode === 'easy') {
 }
 
 
-
-
-/////////////////////////////////////////////////
-//Shuffle ordering of object array from deal()
-/////////////////////////////////////////////////
-
-//currently NOT being used for anything
-function shuffle(orderedGrid) {
-  var shuffledGrid = [];
-  while(orderedGrid.length > 0) {
-    var randomIndex = Math.floor(Math.random() * (orderedGrid.length -1));
-    shuffledGrid.push(orderedGrid[randomIndex]);
-    orderedGrid.splice(randomIndex, 1);
-  }
-  return shuffledGrid;
-}
-
 /////////////////////////////////////////////////////////////////////////
 //Shuffle ordering of Cards in DOM
 //found at: https://css-tricks.com/snippets/jquery/shuffle-dom-elements/
@@ -82,6 +65,7 @@ function switchPlayers() {
     currentPlayer = game.player1;
   }
 }
+///////////////////////////
 
 /////////////////////////////////
 //Current player display function
@@ -89,6 +73,7 @@ function switchPlayers() {
 function displayPlayer() {
   $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
 }
+////////////////////////////////
 
 /////////////////////////////////
 //Update score display function
@@ -100,6 +85,7 @@ function scoreDisplay(player) {
     $('#player-two').text(player.score);
   }
 }
+//////////////////////////////////
 
 /////////////////////////////////////////////
 //Card object generator --
@@ -120,9 +106,6 @@ function Card(number, colour){
 	$('#card-container').append('<div id="card-' + counter + '" class="card back" data-number=' + number + ' data-colour=' + colour + ' ></div>');
   //add jQuery object as element property to last-created div with .card class
 	this.element = $('.card').last()
-  //call Shuffle on DOM Card elements
-  $('.card').shuffle();
-
   //add click event to jQuery object
 	this.element.on('click', function(){
     numClicks += 1;
@@ -181,4 +164,7 @@ $('#play-button').on('click', function(){
       cardGrid.push(new Card(j, colours[i]));
     }
   }
+  //shuffle Cards ordering in DOM
+  $('.card').shuffle();
 });
+///////////////////////////////////////////////////////
