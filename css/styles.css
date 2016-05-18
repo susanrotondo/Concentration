@@ -125,3 +125,9 @@ header {
   border: 6px solid blue;
   font-size: 75px;
 }
+
+.transparent {
+  opacity: .50;
+  -moz-opacity: .50;
+  filter:alpha(opacity=50);
+}

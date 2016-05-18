@@ -136,6 +136,7 @@ function Card(number, colour){
         scoreDisplay(currentPlayer);
         //turn off click event for matched cards
         clickedCards.forEach(function(element, index, array) {
+          element.addClass('transparent');
           element.off();
         });
         numClicks = 0;
