@@ -129,7 +129,7 @@ function Card(number, colour){
     if(numClicks == 2) {
       //if is a match
       if(isMatch(clickedCards)) {
-        //placeholder for match condition
+        // ------------------------------------------------------> placeholder for match condition
         console.log('a match!');
         headsUp(true);
         currentPlayer.score += 1;
@@ -138,23 +138,25 @@ function Card(number, colour){
         clickedCards.forEach(function(element, index, array) {
           element.off();
         });
+        numClicks = 0;
+        clickedCards = [];
         displayPlayer();
         //if no match
       } else {
-        //placeholder for no match condition
-        console.log('no match!');
+        setTimeout(function(){
+          // --------------------------------------------------> placeholder for no match condition
+          console.log('no match!');
+          clickedCards.forEach(function(element, index, array) {
+            element.text('');
+            element.toggleClass('back ' + element.data('colour'));
+          });
+          numClicks = 0;
+          clickedCards = [];
+          switchPlayers();
+          displayPlayer();
+        }, 800);
         headsUp(false);
-        //use something other than toggleClass so that the second card can be seen before being flipped back over???
-        //no match, so turn cards back over
-        clickedCards.forEach(function(element, index, array) {
-          element.text('');
-          element.toggleClass('back ' + element.data('colour'));
-        });
-        switchPlayers();
-        displayPlayer();
       }
-    numClicks = 0;
-    clickedCards = [];
     }
 	});
 }
@@ -169,9 +171,6 @@ $('#play-button').on('click', function(){
   displayPlayer();
   for(var i = 0; i < colours.length; i++) {
     for(var j = 1; j <= numbers; j++) {
-      // Currently NOT using the cardGrid for anything
-      //how to use to shuffle now that code has changed???
-      //If don't end up using, remove cardGrid array as it will have no purpose.
       new Card(j, colours[i]);
       new Card(j, colours[i]);
     }
