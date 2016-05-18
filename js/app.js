@@ -14,9 +14,11 @@ var currentPlayer = game.player1;
 // Update based on player mode selection?????
 var mode = 'easy';
 var colours = [];
+// ------------------------------------------------ UNCOMMENT AFTER END GAME SCENARIO WORKING --------------------->
 // var numbers = 6;
 
 //for testing game over scenario
+// ------------------------------------------------ REMOVE AFTER END GAME SCENARIO WORKING --------------------->
 var numbers = 2;
 
 if(mode === 'easy') {
