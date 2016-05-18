@@ -10,28 +10,19 @@ var game = {
 }
 
 var currentPlayer = game.player1;
-
+// Once option to choose difficulty mode functional, move into game object initialized to mode: ''
+// Update based on player mode selection?????
 var mode = 'easy';
 var colours = [];
-var numbers = 9;
+var numbers = 6;
 var cardGrid = [];
 
 if(mode === 'easy') {
   colours = ['red', 'blue'];
 }
 
-////////////////////////////////
-//Create array of Card objects
-////////////////////////////////
-function deal() {
-  for(var i = 0; i < colours.length; i++) {
-    for(var j = 1; j <= numbers; j++) {
-      cardGrid.push(new Card(j, colours[i]));
-      cardGrid.push(new Card(j, colours[i]));
-    }
-  }
-  return cardGrid;
-}
+
+
 
 /////////////////////////////////////////////////
 //Shuffle ordering of object array from deal()
@@ -46,27 +37,18 @@ function shuffle(orderedGrid) {
   return shuffledGrid;
 }
 
-/////////////////////////
-//Card object generator
-////////////////////////
-function Card(number, colour) {
-  this.number = number;
-  this.colour = colour;
-  this.element = '<div class="card back"></div>';
-}
-
 /////////////////////////////
 //Check for match function
 ////////////////////////////
-//****** RETURN A BOOLEAN ********
 function isMatch(clickedCardsArray) {
-  return clickedCardsArray[0].innerHTML === clickedCardsArray[1].innerHTML && clickedCardsArray[0].className === clickedCardsArray[1].className;
+  // returns a boolen
+  return clickedCardsArray[0].text() === clickedCardsArray[1].text() && clickedCardsArray[0].attr("class") === clickedCardsArray[1].attr("class");
 }
 
 /////////////////////////
 //Switch turns function
 /////////////////////////
-function switchTurns() {
+function switchPlayers() {
   if(currentPlayer == game.player1) {
     currentPlayer = game.player2;
   } else {
@@ -81,55 +63,77 @@ function displayPlayer() {
   $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
 }
 
-//////////////////////////////
-//jQuery event functions begin
-//////////////////////////////
+/////////////////////////////////
+//Update score function
+/////////////////////////////////
+function updateScore() {
 
-var $play = $('#play-button');
-var $cardContainer = $('#card-container');
+}
 
-//Play button click event
-$play.on('click',function() {
-  displayPlayer();
-  var grid = shuffle(deal());
-  $.each(grid, function(index, value) {
-    $cardContainer.append(value.element);
-  });
-  //div.card click event
-  var numClicks = 0;
-  var clickedCards = [];
-  $('div.card').on('click',function() {
-    clickedCards.push(this);
-    var $selectedIndex = $('div.card').index(this);
-    var selectedNumber = grid[$selectedIndex].number;
-    var selectedColour = grid[$selectedIndex].colour;
+/////////////////////////////////////////////
+//Card object generator --
+//contains Card instance.element click event
+/////////////////////////////////////////////
+var counter = 0;
+// Currently not using the counter/id of card-counterNum for anything,
+//but maybe it will be useful for
+// shuffling the ordering of the layout???
+var numClicks = 0;
+var clickedCards = [];
+function Card(number, colour){
+  counter += 1;
+	$('#card-container').append('<div id="card-' + counter + '" class="card back" data-number=' + number + ' data-colour=' + colour + ' ></div>');
+	this.element = $('.card').last()
+	this.element.on('click', function(){
     numClicks += 1;
-    $(this).text(selectedNumber);
-    $(this).toggleClass(selectedColour + ' back');
-    if(numClicks === 2) {
+    if($(this).text() != '') {
+      $(this).text('');
+    } else {
+      $(this).text($(this).data('number'));
+    }
+    $(this).toggleClass('back ' + $(this).data('colour'));
+    clickedCards.push($(this));
+    if(numClicks == 2) {
+      //after two cards have been picked
       if(isMatch(clickedCards)) {
-        console.log('match');
+        //if is a match
+        console.log('a match!');
         currentPlayer.score += 1;
-        //make cards unclickable (OR remove cards from /board)
-        //** IF ONE PAIR LEFT, AUTO TURN OVER AND GIVE POINTS TO CURRENT PLAYER **
-        //   ^^^ THIS WILL BE THE POINT AT WHICH WINNER IS DETERMINED ^^^
-        //if no winner, current player gets another turn
+        //turn off click event for matched cards
+        clickedCards.forEach(function(element, index, array) {
+          element.off();
+        });
+        displayPlayer();
       } else {
-        console.log('no match');
-        //turn cards back over
-        // for(var i = 0; i < clickedCards.length; i++) {
-        //   clickedCards[i].classList.toggle(selectedColour);
-        //   clickedCards[i].classList.toggle('back');
-        //   clickedCards[i].innerHTML = '';
-        //   below doesn't work either -- toggles off all classes
-        //   $(clickedCards[i]).toggleClass(clickedCards[i].className);
-        // }
-        //switch players
-        switchTurns();
+        //if no match
+        console.log('no match!');
+        //use something other than toggleClass so that the second card can be seen before being flipped back over???
+        //no match, so turn cards back over
+        clickedCards.forEach(function(element, index, array) {
+          element.text('');
+          element.toggleClass('back ' + element.data('colour'));
+        });
+        switchPlayers();
         displayPlayer();
       }
-      clickedCards = [];
-      numClicks = 0;
+    numClicks = 0;
+    clickedCards = [];
     }
-    });
+	});
+}
+
+//////////////////////////////////////////////////////
+//Play button click event, calls Card object generator
+//////////////////////////////////////////////////////
+$('#play-button').on('click', function(){
+  $('#player-one').text(game.player1.score);
+  $('#player-two').text(game.player2.score);
+  displayPlayer();
+  for(var i = 0; i < colours.length; i++) {
+    for(var j = 1; j <= numbers; j++) {
+      // Currently NOT using the cardGrid for anything; how to use to shuffle now that code has changed???
+      cardGrid.push(new Card(j, colours[i]));
+      cardGrid.push(new Card(j, colours[i]));
+    }
+  }
 });
