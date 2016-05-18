@@ -1,3 +1,5 @@
+![](assets/sm-glasses-logo.png)
+
 # Concentration!
 
 ### WDI-SM-23 Project 1
