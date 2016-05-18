@@ -14,7 +14,10 @@ var currentPlayer = game.player1;
 // Update based on player mode selection?????
 var mode = 'easy';
 var colours = [];
-var numbers = 6;
+// var numbers = 6;
+
+//for testing game over scenario
+var numbers = 2;
 
 if(mode === 'easy') {
   colours = ['red', 'blue'];
@@ -102,7 +105,6 @@ function headsUp(match) {
 //Check for game over -- i.e., the last pair of Cards is in play
 ////////////////////////////////////////////////////////////////
 function isGameOver() {
-  console.log('num of cards out of play: ' + $('.transparent').length);
   if(($('.transparent').length) == ((numbers * colours.length * 2) - 2)) {
     return true;
   } else {
@@ -144,7 +146,6 @@ function Card(number, colour){
       if(isMatch(clickedCards)) {
         // ------------------------------------------------------> placeholder for match condition
         console.log('a match!');
-        headsUp(true);
         currentPlayer.score += 1;
         scoreDisplay(currentPlayer);
         //turn off click event for matched cards
@@ -152,9 +153,20 @@ function Card(number, colour){
           element.addClass('transparent');
           element.off();
         });
-        numClicks = 0;
-        clickedCards = [];
-        displayPlayer();
+        console.log('isGameOver()' + isGameOver());
+        if(isGameOver()) {
+          // ------------------------------------------------------> placeholder for end game condition
+          console.log('Game Over!');
+          currentPlayer.score += 1;
+          scoreDisplay(currentPlayer);
+          //when down to the last pair of cards, turn over, unclickable and semi-transparent
+          $('.card').not('.transparent').toggleClass('back ' + $(this).data('colour')).text($(this).data('number')).addClass('transparent');
+        } else {
+          headsUp(true);
+          numClicks = 0;
+          clickedCards = [];
+          displayPlayer();
+        }
         //if no match
       } else {
         setTimeout(function(){
@@ -170,9 +182,6 @@ function Card(number, colour){
           displayPlayer();
         }, 800);
         headsUp(false);
-      }
-      if(isGameOver()) {
-        console.log('Game Over!');
       }
     }
 	});
