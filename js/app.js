@@ -39,6 +39,30 @@ function shuffle(orderedGrid) {
   return shuffledGrid;
 }
 
+/////////////////////////////////////////////////////////////////////////
+//Shuffle ordering of Cards in DOM
+//found at: https://css-tricks.com/snippets/jquery/shuffle-dom-elements/
+/////////////////////////////////////////////////////////////////////////
+(function($){
+    $.fn.shuffle = function() {
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+        return $(shuffled);
+    };
+})(jQuery);
+///////////////////////////////////////////////////////////////////////
+
 /////////////////////////////
 //Check for match function
 ////////////////////////////
@@ -46,6 +70,7 @@ function isMatch(clickedCardsArray) {
   // returns a boolen
   return clickedCardsArray[0].text() === clickedCardsArray[1].text() && clickedCardsArray[0].attr("class") === clickedCardsArray[1].attr("class");
 }
+/////////////////////////////
 
 /////////////////////////
 //Switch turns function
@@ -88,12 +113,16 @@ var counter = 0;
 
 var numClicks = 0;
 var clickedCards = [];
+
 function Card(number, colour){
   //counter currently not being used for anything
   counter += 1;
 	$('#card-container').append('<div id="card-' + counter + '" class="card back" data-number=' + number + ' data-colour=' + colour + ' ></div>');
   //add jQuery object as element property to last-created div with .card class
 	this.element = $('.card').last()
+  //call Shuffle on DOM Card elements
+  $('.card').shuffle();
+
   //add click event to jQuery object
 	this.element.on('click', function(){
     numClicks += 1;
