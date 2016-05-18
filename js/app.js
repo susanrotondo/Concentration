@@ -98,6 +98,19 @@ function headsUp(match) {
 }
 //////////////////////////
 
+////////////////////////////////////////////////////////////////
+//Check for game over -- i.e., the last pair of Cards is in play
+////////////////////////////////////////////////////////////////
+function isGameOver() {
+  console.log('num of cards out of play: ' + $('.transparent').length);
+  if(($('.transparent').length) == ((numbers * colours.length * 2) - 2)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+//////////////////////////////////////////////////////////////
+
 /////////////////////////////////////////////
 //Card object generator --
 //contains Card instance.element click event
@@ -157,6 +170,9 @@ function Card(number, colour){
           displayPlayer();
         }, 800);
         headsUp(false);
+      }
+      if(isGameOver()) {
+        console.log('Game Over!');
       }
     }
 	});
