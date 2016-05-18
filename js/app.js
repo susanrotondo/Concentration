@@ -15,7 +15,6 @@ var currentPlayer = game.player1;
 var mode = 'easy';
 var colours = [];
 var numbers = 6;
-var cardGrid = [];
 
 if(mode === 'easy') {
   colours = ['red', 'blue'];
@@ -160,8 +159,8 @@ $('#play-button').on('click', function(){
       // Currently NOT using the cardGrid for anything
       //how to use to shuffle now that code has changed???
       //If don't end up using, remove cardGrid array as it will have no purpose.
-      cardGrid.push(new Card(j, colours[i]));
-      cardGrid.push(new Card(j, colours[i]));
+      new Card(j, colours[i]);
+      new Card(j, colours[i]);
     }
   }
   //shuffle Cards ordering in DOM
