@@ -64,20 +64,26 @@ function displayPlayer() {
 }
 
 /////////////////////////////////
-//Update score function
+//Update score display function
 /////////////////////////////////
-function updateScore() {
-
+function scoreDisplay(player) {
+  if(player.name == 'Player 1') {
+    $('#player-one').text(player.score);
+  } else {
+    $('#player-two').text(player.score);
+  }
 }
 
 /////////////////////////////////////////////
 //Card object generator --
 //contains Card instance.element click event
 /////////////////////////////////////////////
-var counter = 0;
+
 // Currently not using the counter/id of card-counterNum for anything,
 //but maybe it will be useful for
 // shuffling the ordering of the layout???
+var counter = 0;
+
 var numClicks = 0;
 var clickedCards = [];
 function Card(number, colour){
@@ -99,6 +105,7 @@ function Card(number, colour){
         //if is a match
         console.log('a match!');
         currentPlayer.score += 1;
+        scoreDisplay(currentPlayer);
         //turn off click event for matched cards
         clickedCards.forEach(function(element, index, array) {
           element.off();
