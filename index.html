@@ -16,10 +16,16 @@
       <div id="title-container">
         <h1 id="title">Concentration!</h1>
       </div>
+      <!-- ***************** DON'T FORGET TO REMOVE BUTTON FROM HEADER AFTER MAKING START SCREEN ***************** -->
+      <button type="button" id="play-button">Play!</button>
       <div id="info-display"></div>
     </header>
-    <!--                        REMOVE BUTTON FROM SPACER DIV ONCE START SCREEN ADDED                        -->
-    <div id="space"><button type="button" id="play-button">Play!</button></div>
+    <div id="space">
+      <div id="heads-up">
+        <p id="no-match">Sorry, no match!</p>
+        <p id="yes-match">You found a match, go again!</p>
+      </div>
+    </div>
     <div class="score-display">PLAYER 1<br>SCORE:<br><span class="score" id="player-one"></span></div>
     <div id="card-container"></div>
     <div class="score-display">PLAYER 2<br>SCORE:<br><span class="score" id="player-two"></span></div>

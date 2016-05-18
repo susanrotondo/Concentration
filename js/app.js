@@ -86,14 +86,24 @@ function scoreDisplay(player) {
 }
 //////////////////////////////////
 
+//////////////////////////
+//Update heads-up display
+//////////////////////////
+function headsUp(match) {
+  if(!match) {
+    $('#no-match').show().delay(2000).fadeOut();
+  } else {
+    $('#yes-match').show().delay(2000).fadeOut();
+  }
+}
+//////////////////////////
+
 /////////////////////////////////////////////
 //Card object generator --
 //contains Card instance.element click event
 /////////////////////////////////////////////
 
-// Currently not using the counter/id of card-counterNum for anything,
-//but maybe it will be useful for
-// shuffling the ordering of the layout???
+// Currently not using the counter/id of card-counterNum for anything
 var counter = 0;
 
 var numClicks = 0;
@@ -121,6 +131,7 @@ function Card(number, colour){
       if(isMatch(clickedCards)) {
         //placeholder for match condition
         console.log('a match!');
+        headsUp(true);
         currentPlayer.score += 1;
         scoreDisplay(currentPlayer);
         //turn off click event for matched cards
@@ -132,6 +143,7 @@ function Card(number, colour){
       } else {
         //placeholder for no match condition
         console.log('no match!');
+        headsUp(false);
         //use something other than toggleClass so that the second card can be seen before being flipped back over???
         //no match, so turn cards back over
         clickedCards.forEach(function(element, index, array) {
@@ -146,6 +158,7 @@ function Card(number, colour){
     }
 	});
 }
+/////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
 //Play button click event, calls Card object generator
