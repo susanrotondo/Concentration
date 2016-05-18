@@ -27,6 +27,8 @@ if(mode === 'easy') {
 /////////////////////////////////////////////////
 //Shuffle ordering of object array from deal()
 /////////////////////////////////////////////////
+
+//currently NOT being used for anything
 function shuffle(orderedGrid) {
   var shuffledGrid = [];
   while(orderedGrid.length > 0) {
@@ -87,9 +89,12 @@ var counter = 0;
 var numClicks = 0;
 var clickedCards = [];
 function Card(number, colour){
+  //counter currently not being used for anything
   counter += 1;
 	$('#card-container').append('<div id="card-' + counter + '" class="card back" data-number=' + number + ' data-colour=' + colour + ' ></div>');
+  //add jQuery object as element property to last-created div with .card class
 	this.element = $('.card').last()
+  //add click event to jQuery object
 	this.element.on('click', function(){
     numClicks += 1;
     if($(this).text() != '') {
@@ -99,10 +104,11 @@ function Card(number, colour){
     }
     $(this).toggleClass('back ' + $(this).data('colour'));
     clickedCards.push($(this));
+    //after two cards have been picked
     if(numClicks == 2) {
-      //after two cards have been picked
+      //if is a match
       if(isMatch(clickedCards)) {
-        //if is a match
+        //placeholder for match condition
         console.log('a match!');
         currentPlayer.score += 1;
         scoreDisplay(currentPlayer);
@@ -111,8 +117,9 @@ function Card(number, colour){
           element.off();
         });
         displayPlayer();
-      } else {
         //if no match
+      } else {
+        //placeholder for no match condition
         console.log('no match!');
         //use something other than toggleClass so that the second card can be seen before being flipped back over???
         //no match, so turn cards back over
@@ -138,7 +145,9 @@ $('#play-button').on('click', function(){
   displayPlayer();
   for(var i = 0; i < colours.length; i++) {
     for(var j = 1; j <= numbers; j++) {
-      // Currently NOT using the cardGrid for anything; how to use to shuffle now that code has changed???
+      // Currently NOT using the cardGrid for anything
+      //how to use to shuffle now that code has changed???
+      //If don't end up using, remove cardGrid array as it will have no purpose.
       cardGrid.push(new Card(j, colours[i]));
       cardGrid.push(new Card(j, colours[i]));
     }
