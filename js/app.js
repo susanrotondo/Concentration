@@ -19,7 +19,7 @@ var colours = [];
 
 //for testing game over scenario
 // ------------------------------------------------ REMOVE AFTER END GAME SCENARIO WORKING --------------------->
-var numbers = 2;
+var numbers = 1;
 
 if(mode === 'easy') {
   colours = ['red', 'blue'];
@@ -164,6 +164,7 @@ function Card(number, colour){
           //when down to the last pair of cards, turn over, unclickable and semi-transparent
           $('.card').not('.transparent').toggleClass('back ' + $(this).data('colour')).text($(this).data('number')).addClass('transparent');
           $('#popup-outer').fadeIn(350);
+          $('#popup-inner').fadeIn(350);
         } else {
           headsUp(true);
           numClicks = 0;
