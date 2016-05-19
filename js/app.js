@@ -175,8 +175,9 @@ function Card(number, colour){
           currentPlayer.score += 1;
           scoreDisplay(currentPlayer);
           //when down to the last pair of cards, turn over, unclickable and semi-transparent
-          console.log($('.card').not('.transparent'));
-          // $('.card').not('.transparent').toggleClass('back ' + $(this).data('colour')).text($(this).data('number')).addClass('transparent');
+          var cardsLeftColour = $('.card').not('.transparent').data('colour');
+          var cardsLeftNum = $('.card').not('.transparent').data('number');
+          $('.card').not('.transparent').toggleClass('back ' + cardsLeftColour).text(cardsLeftNum);
           $('.card').not('.transparent').addClass('transparent');
           $('#again-button').show(500);
         } else {
