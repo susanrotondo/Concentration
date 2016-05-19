@@ -9,11 +9,6 @@
     integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="  crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="popup-inner">
-      <div id="popup-text"></div>
-      <div id="popup-button"></div>
-    </div>
-    <div id="popup-outer"></div>
     <header>
       <div id="logo-container">
         <img src="assets/sm-glasses-logo.png" alt="glasses-logo" id="logo"/>
@@ -21,14 +16,18 @@
       <div id="title-container">
         <h1 id="title">Concentration!</h1>
       </div>
-      <!-- ***************** DON'T FORGET TO REMOVE BUTTON FROM HEADER AFTER MAKING START SCREEN ***************** -->
-      <button type="button" id="play-button">Play!</button>
       <div id="info-display"></div>
     </header>
     <div id="space">
+      <div class="button-container">
+        <div class="buttons" id="play-button"><a href="#">Play!</a></div>
+      </div>
       <div id="heads-up">
         <p id="no-match">Sorry, no match!</p>
         <p id="yes-match">You found a match, go again!</p>
+      </div>
+      <div class="button-container">
+        <div class="buttons" id="again-button"><a href="#">Play Again?</a></div>
       </div>
     </div>
     <div class="score-display">PLAYER 1<br>SCORE:<br><span class="score" id="player-one"></span></div>

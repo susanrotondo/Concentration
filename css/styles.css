@@ -8,31 +8,6 @@ body {
   color: white;
 }
 
-#popup-outer {
-    width: 80%;
-    height: 60em;
-    display: none;
-    position: fixed;
-    top: 4em;
-    left: 10%;
-    right: 10%;
-    background:rgba(0,0,0,0.75);
-}
-
-#popup-inner {
-  display: none;
-  width: 60%;
-  height: 35em;
-  position: relative;
-  /*top:50%;
-  left:50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);*/
-  background-color: white;
-  text-align: center;
-  font-size: 5em;
-}
-
 header {
   width: 100%;
 }
@@ -74,23 +49,48 @@ header {
   font-size: 3em;
 }
 
-#play-button {
-  display: inline-block;
+#space {
+  width: 100%;
+  height: 10em;
   clear: both;
 }
 
-#space {
-  width: 100%;
-  height: 6em;
-  clear: both;
+.button-container {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+
+#again-button a {
+  font-size: 1.4em;
+}
+
+.button-container a {
+  text-decoration: none;
+  color: black;
+  font-size: 2em;
+}
+
+.buttons {
+  width: 50%;
+  height: 2.8em;
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
+  border-radius: 2px;
+}
+
+#again-button {
+  display: none;
 }
 
 #heads-up {
-  width: 60%;
-  height: 3em;
-  margin: 0 auto;
+  width: 55%;
+  height: 100%;
+  margin: 0 2.1%;
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
+  float: left;
 }
 
 #no-match {

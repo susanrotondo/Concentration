@@ -96,9 +96,9 @@ function scoreDisplay(player) {
 //////////////////////////
 function headsUp(match) {
   if(!match) {
-    $('#no-match').show().delay(2000).fadeOut();
+    $('#no-match').show().delay(700).fadeOut();
   } else {
-    $('#yes-match').show().delay(2000).fadeOut();
+    $('#yes-match').show().delay(700).fadeOut();
   }
 }
 //////////////////////////
@@ -162,9 +162,10 @@ function Card(number, colour){
           currentPlayer.score += 1;
           scoreDisplay(currentPlayer);
           //when down to the last pair of cards, turn over, unclickable and semi-transparent
-          $('.card').not('.transparent').toggleClass('back ' + $(this).data('colour')).text($(this).data('number')).addClass('transparent');
-          $('#popup-outer').fadeIn(350);
-          $('#popup-inner').fadeIn(350);
+          console.log($('.card').not('.transparent'));
+          // $('.card').not('.transparent').toggleClass('back ' + $(this).data('colour')).text($(this).data('number')).addClass('transparent');
+          $('.card').not('.transparent').addClass('transparent');
+          $('#again-button').show(500);
         } else {
           headsUp(true);
           numClicks = 0;
@@ -207,5 +208,6 @@ $('#play-button').on('click', function(){
   }
   //shuffle Cards ordering in DOM
   $('.card').shuffle();
+  $('#play-button').hide(500);
 });
 ///////////////////////////////////////////////////////
