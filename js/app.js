@@ -135,8 +135,9 @@ function displayWinner(scoreOne, scoreTwo) {
 //////////////////////////
 function resetGame() {
   $('#card-container').empty();
+  $('#winning-player').hide();
   game.player1.score = 0;
-  game.player1.score = 0;
+  game.player2.score = 0;
   currentPlayer = game.player1;
   counter = 0;
   numClicks = 0;
