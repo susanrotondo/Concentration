@@ -75,6 +75,14 @@ function switchPlayers() {
 /////////////////////////////////
 function displayPlayer() {
   $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
+  $('#info-display').animate({
+    fontSize: '40px'
+  }, 400);
+  setTimeout(function(){
+    $('#info-display').animate({
+      fontSize: '35px'
+    }, 400);
+  }, 400);
 }
 ////////////////////////////////
 
@@ -218,7 +226,7 @@ function Card(number, colour){
           clickedCards = [];
           switchPlayers();
           displayPlayer();
-        }, 800);
+        }, 600);
         headsUp(false);
       }
     }
