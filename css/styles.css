@@ -8,6 +8,17 @@ body {
   color: white;
 }
 
+#popup-outer {
+    width: 90%;
+    height: 60em;
+    display: none;
+    position: fixed;
+    top: 2em;
+    left: 5%;
+    right: 5%;
+    background:rgba(0,0,0,0.50);
+}
+
 header {
   width: 100%;
 }
