@@ -102,6 +102,14 @@ header {
   display: none;
 }
 
+#winning-player {
+  display: none;
+}
+
+#tie-game {
+  display: none;
+}
+
 .score-display {
   width: 21%;
   height: 300px;

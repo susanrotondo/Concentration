@@ -90,9 +90,9 @@ function scoreDisplay(player) {
 }
 //////////////////////////////////
 
-//////////////////////////
-//Update heads-up display
-//////////////////////////
+////////////////////////////////////////
+//Update heads-up match/no match display
+////////////////////////////////////////
 function headsUp(match) {
   if(!match) {
     $('#no-match').show().delay(700).fadeOut();
@@ -113,6 +113,22 @@ function isGameOver() {
   }
 }
 //////////////////////////////////////////////////////////////
+
+////////////////////////////////////////
+//Display winner
+////////////////////////////////////////
+function displayWinner(scoreOne, scoreTwo) {
+  if(scoreOne == scoreTwo) {
+    $('#tie-game').show();
+  } else if (scoreOne > scoreTwo) {
+    $('#winner-name').text(game.player1.name);
+    $('#winning-player').show();
+  } else {
+    $('#winner-name').text(game.player2.name);
+    $('#winning-player').show();
+  }
+}
+//////////////////////////
 
 //////////////////////////
 //Start game over
@@ -179,6 +195,8 @@ function Card(number, colour){
           var cardsLeftNum = $('.card').not('.transparent').data('number');
           $('.card').not('.transparent').toggleClass('back ' + cardsLeftColour).text(cardsLeftNum);
           $('.card').not('.transparent').addClass('transparent');
+          displayWinner(game.player1.score, game.player2.score);
+          $('#info-display').text('');
           $('#again-button').show(500);
         } else {
           headsUp(true);
