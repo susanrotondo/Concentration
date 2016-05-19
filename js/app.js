@@ -9,9 +9,8 @@ var game = {
   }
 }
 
+//Initialize variable at start of game:
 var currentPlayer = game.player1;
-// Once option to choose difficulty mode functional, move into game object initialized to mode: ''
-// Update based on player mode selection?????
 var mode = 'easy';
 var colours = [];
 // ------------------------------------------------ UNCOMMENT AFTER END GAME SCENARIO WORKING --------------------->

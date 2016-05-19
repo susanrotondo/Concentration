@@ -31,8 +31,13 @@ HTML, CSS, Javascript, jQuery
 
 ### Other:
 
-Fisher-Yates shuffle
+Used to shuffle Card order in-DOM: [https://css-tricks.com/snippets/jquery/shuffle-dom-elements/]()
 
 ### Wireframe:
 ![](assets/Concentration Mockup 1.png)
+
+### Future Implementations:
+* Multiple difficulty modes
+* Start and end screens
+* In-game quit/start over with pop-up screen
 
