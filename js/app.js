@@ -14,11 +14,11 @@ var currentPlayer = game.player1;
 var mode = 'easy';
 var colours = [];
 // ------------------------------------------------ UNCOMMENT AFTER END GAME SCENARIO WORKING --------------------->
-// var numbers = 6;
+var numbers = 6;
 
 //for testing game over scenario
 // ------------------------------------------------ REMOVE AFTER END GAME SCENARIO WORKING --------------------->
-var numbers = 1;
+// var numbers = 3;
 
 if(mode === 'easy') {
   colours = ['red', 'blue'];
