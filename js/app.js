@@ -115,6 +115,20 @@ function isGameOver() {
 }
 //////////////////////////////////////////////////////////////
 
+//////////////////////////
+//Start game over
+//////////////////////////
+function resetGame() {
+  $('#card-container').empty();
+  game.player1.score = 0;
+  game.player1.score = 0;
+  currentPlayer = game.player1;
+  counter = 0;
+  numClicks = 0;
+  clickedCards = [];
+}
+//////////////////////////
+
 /////////////////////////////////////////////
 //Card object generator --
 //contains Card instance.element click event
@@ -211,3 +225,25 @@ $('#play-button').on('click', function(){
   $('#play-button').hide(500);
 });
 ///////////////////////////////////////////////////////
+
+///////////////////////////////////////////
+//Play Again button click - resets game
+///////////////////////////////////////////
+$('#again-button').on('click', function(){
+  setTimeout(function(){
+    resetGame();
+    $('#player-one').text(game.player1.score);
+    $('#player-two').text(game.player2.score);
+    displayPlayer();
+    for(var i = 0; i < colours.length; i++) {
+      for(var j = 1; j <= numbers; j++) {
+        new Card(j, colours[i]);
+        new Card(j, colours[i]);
+      }
+    }
+    //shuffle Cards ordering in DOM
+    $('.card').shuffle();
+    $('#again-button').hide(500);
+  }, 900);
+});
+///////////////////////////////////////////

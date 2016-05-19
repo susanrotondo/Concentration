@@ -74,10 +74,11 @@ header {
 .buttons {
   width: 50%;
   height: 2.8em;
-  margin: 0 auto;
+  margin: 1em auto;
   text-align: center;
   background-color: white;
-  border-radius: 2px;
+  border: 0.2em solid black;
+  border-radius: 4px;
 }
 
 #again-button {
