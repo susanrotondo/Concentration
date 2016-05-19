@@ -124,6 +124,7 @@ header {
 
 #card-container {
   width: 50%;
+  max-width: 650px;
   height: 740px;
   float: left;
 }
@@ -137,7 +138,7 @@ header {
 }
 
 .back {
-  height: 98px;
+  height: 8em;
   background-color: grey;
   border: 6px solid white;
   background-image: url(../assets/q-mark.png);
@@ -150,14 +151,14 @@ header {
   color: red;
   background-color: white;
   border: 6px solid red;
-  font-size: 75px;
+  font-size: 85px;
 }
 
 .blue {
   color: blue;
   background-color: white;
   border: 6px solid blue;
-  font-size: 75px;
+  font-size: 85px;
 }
 
 .transparent {
