@@ -125,7 +125,6 @@ header {
 
 #card-container {
   width: 50%;
-  max-width: 650px;
   height: 740px;
   float: left;
 }
