@@ -24,8 +24,6 @@ if(mode === 'easy') {
   colours = ['red', 'blue'];
 }
 
-var cheer = $('#cheering-clip')[0];
-
 
 /////////////////////////////////////////////////////////////////////////
 //Shuffle ordering of Cards in DOM
@@ -77,14 +75,6 @@ function switchPlayers() {
 /////////////////////////////////
 function displayPlayer() {
   $('#info-display').text("It's " + currentPlayer.name +"'s turn!");
-  $('#info-display').animate({
-    fontSize: '40px'
-  }, 400);
-  setTimeout(function(){
-    $('#info-display').animate({
-      fontSize: '35px'
-    }, 400);
-  }, 400);
 }
 ////////////////////////////////
 
@@ -133,11 +123,9 @@ function displayWinner(scoreOne, scoreTwo) {
   } else if (scoreOne > scoreTwo) {
     $('#winner-name').text(game.player1.name);
     $('#winning-player').show();
-    cheer.play();
   } else {
     $('#winner-name').text(game.player2.name);
     $('#winning-player').show();
-    cheer.play();
   }
 }
 //////////////////////////
@@ -230,7 +218,7 @@ function Card(number, colour){
           clickedCards = [];
           switchPlayers();
           displayPlayer();
-        }, 600);
+        }, 800);
         headsUp(false);
       }
     }

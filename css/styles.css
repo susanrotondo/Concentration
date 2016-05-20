@@ -46,7 +46,7 @@ header {
   margin-right: 1em;
   margin-bottom: 40px;
   margin-top: 20px;
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 #space {
@@ -115,7 +115,6 @@ header {
   height: 300px;
   float: left;
   margin: 0 1.8%;
-  font-size: 2em;
   text-align: center;
 }
 
@@ -131,14 +130,14 @@ header {
 
 .card {
   margin: 5px 1%;
-  width: 12%;
+  width: 12.8%;
   border-radius: 5px;
   float: left;
   text-align: center;
 }
 
 .back {
-  height: 7em;
+  height: 98px;
   background-color: grey;
   border: 6px solid white;
   background-image: url(../assets/q-mark.png);
@@ -151,14 +150,14 @@ header {
   color: red;
   background-color: white;
   border: 6px solid red;
-  font-size: 70px;
+  font-size: 75px;
 }
 
 .blue {
   color: blue;
   background-color: white;
   border: 6px solid blue;
-  font-size: 70px;
+  font-size: 75px;
 }
 
 .transparent {
