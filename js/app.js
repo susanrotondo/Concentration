@@ -191,8 +191,6 @@ function Card(number, colour){
     if(numClicks == 2) {
       //if is a match
       if(isMatch(clickedCards)) {
-        // ------------------------------------------------------> placeholder for match condition
-        console.log('a match!');
         currentPlayer.score += 1;
         scoreDisplay(currentPlayer);
         //turn off click event for matched cards
@@ -202,8 +200,6 @@ function Card(number, colour){
         });
         console.log('isGameOver()' + isGameOver());
         if(isGameOver()) {
-          // ------------------------------------------------------> placeholder for end game condition
-          console.log('Game Over!');
           currentPlayer.score += 1;
           scoreDisplay(currentPlayer);
           //when down to the last pair of cards, turn over, unclickable and semi-transparent
@@ -223,8 +219,6 @@ function Card(number, colour){
         //if no match
       } else {
         setTimeout(function(){
-          // --------------------------------------------------> placeholder for no match condition
-          console.log('no match!');
           clickedCards.forEach(function(element, index, array) {
             element.text('');
             element.toggleClass('back ' + element.data('colour'));

@@ -108,6 +108,7 @@ header {
 
 #tie-game {
   display: none;
+  color: black;
 }
 
 .score-display {
