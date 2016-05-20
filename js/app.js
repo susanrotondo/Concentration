@@ -18,11 +18,13 @@ var numbers = 6;
 
 //for testing game over scenario
 // ------------------------------------------------ REMOVE AFTER END GAME SCENARIO WORKING --------------------->
-// var numbers = 3;
+// var numbers = 1;
 
 if(mode === 'easy') {
   colours = ['red', 'blue'];
 }
+
+var cheer = $('#cheering-clip')[0];
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -131,9 +133,11 @@ function displayWinner(scoreOne, scoreTwo) {
   } else if (scoreOne > scoreTwo) {
     $('#winner-name').text(game.player1.name);
     $('#winning-player').show();
+    cheer.play();
   } else {
     $('#winner-name').text(game.player2.name);
     $('#winning-player').show();
+    cheer.play();
   }
 }
 //////////////////////////

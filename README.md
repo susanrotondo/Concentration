@@ -17,13 +17,10 @@ The object of Concentration is to turn over the most pairs of matching cards.
 
 ### User Stories:
 
-As a player, I want to be able to click face-down cards to see what their numbers and colors are in order to make matches and win points.
-
-As a player, I want to know as the game proceeds what cards are left to match up.
-
-As a player, I want to know after I've made a match that I have gotten the correct point for the match.
-
-As a player, I want to know if it's my turn or not.
+* As a player, I want to be able to click face-down cards to see what their numbers and colors are in order to make matches and win points.
+* As a player, I want to know as the game proceeds what cards are left to match up.
+* As a player, I want to know after I've made a match that I have gotten the correct point for the match.
+* As a player, I want to know if it's my turn or not.
 
 ### Technologies:
 
@@ -32,6 +29,8 @@ HTML, CSS, Javascript, jQuery
 ### Other:
 
 Used to shuffle Card order in-DOM: [https://css-tricks.com/snippets/jquery/shuffle-dom-elements/]()
+
+Sound clips: [http://soundbible.com/]()
 
 ### Wireframe:
 ![](assets/Concentration Mockup 1.png)
