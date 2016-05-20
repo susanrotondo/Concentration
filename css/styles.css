@@ -130,10 +130,17 @@ header {
   display: none;
 }
 
-#card-container {
+#card-cont-wrapper {
   width: 50%;
   height: 740px;
   float: left;
+}
+
+#card-container {
+  width: 100%;
+  max-width: 650px;
+  height: 740px;
+  margin: 0 auto;
 }
 
 .card {
