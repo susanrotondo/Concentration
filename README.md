@@ -15,6 +15,8 @@ The object of Concentration is to turn over the most pairs of matching cards.
 * When one pair of cards is left, the current player receives the point for the last match and the game ends. 
 * Whichever player has the most points wins.
 
+### Play Here: [http://susanrotondo.github.io/Concentration/]()
+
 ### User Stories:
 
 * As a player, I want to be able to click face-down cards to see what their numbers and colors are in order to make matches and win points.
@@ -39,6 +41,7 @@ Sound clips: [http://soundbible.com/]()
 * Multiple difficulty modes
 * Start and end screens
 * In-game quit/start over with pop-up screen
+* Responsive CSS
 
 ### Known Issues
-* Clicking on the same card twice gets counted as a match
+* Some CSS styling issues
