@@ -179,6 +179,8 @@ function Card(number, colour){
 	this.element = $('.card').last()
   //add click event to jQuery object
 	this.element.on('click', function(){
+    // console.log($(this).css("pointer-events"));
+    $(this).css("pointer-events", "none");
     numClicks += 1;
     if($(this).text() != '') {
       $(this).text('');
@@ -198,7 +200,6 @@ function Card(number, colour){
           element.addClass('transparent');
           element.off();
         });
-        console.log('isGameOver()' + isGameOver());
         if(isGameOver()) {
           currentPlayer.score += 1;
           scoreDisplay(currentPlayer);
@@ -222,6 +223,7 @@ function Card(number, colour){
           clickedCards.forEach(function(element, index, array) {
             element.text('');
             element.toggleClass('back ' + element.data('colour'));
+            element.css("pointer-events", "auto");
           });
           numClicks = 0;
           clickedCards = [];
