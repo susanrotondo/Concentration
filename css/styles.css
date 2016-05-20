@@ -123,6 +123,12 @@ header {
   font-size: 3.5em;
 }
 
+.w-logo {
+  width: 13em;
+  margin: 1.8em auto;
+  display: none;
+}
+
 #card-container {
   width: 50%;
   height: 740px;

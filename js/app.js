@@ -133,10 +133,12 @@ function displayWinner(scoreOne, scoreTwo) {
   } else if (scoreOne > scoreTwo) {
     $('#winner-name').text(game.player1.name);
     $('#winning-player').show();
+    $('#one-win').show();
     cheer.play();
   } else {
     $('#winner-name').text(game.player2.name);
     $('#winning-player').show();
+    $('#two-win').show();
     cheer.play();
   }
 }
@@ -148,6 +150,7 @@ function displayWinner(scoreOne, scoreTwo) {
 function resetGame() {
   $('#card-container').empty();
   $('#winning-player').hide();
+  $('.w-logo').hide();
   game.player1.score = 0;
   game.player2.score = 0;
   currentPlayer = game.player1;
