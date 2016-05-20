@@ -131,14 +131,14 @@ header {
 
 .card {
   margin: 5px 1%;
-  width: 12.8%;
+  width: 12%;
   border-radius: 5px;
   float: left;
   text-align: center;
 }
 
 .back {
-  height: 8em;
+  height: 7em;
   background-color: grey;
   border: 6px solid white;
   background-image: url(../assets/q-mark.png);
@@ -148,17 +148,18 @@ header {
 }
 
 .red {
+  height: 1.33em;
   color: red;
   background-color: white;
   border: 6px solid red;
-  font-size: 85px;
+  font-size: 70px;
 }
 
 .blue {
   color: blue;
   background-color: white;
   border: 6px solid blue;
-  font-size: 85px;
+  font-size: 70px;
 }
 
 .transparent {
