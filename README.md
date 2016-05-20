@@ -40,3 +40,5 @@ Sound clips: [http://soundbible.com/]()
 * Start and end screens
 * In-game quit/start over with pop-up screen
 
+### Known Issues
+* Clicking on the same card twice gets counted as a match
