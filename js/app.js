@@ -125,15 +125,28 @@ function isGameOver() {
 ////////////////////////////////////////
 //Display winner
 ////////////////////////////////////////
+// function displayWinner(scoreOne, scoreTwo) {
+//   if(scoreOne == scoreTwo) {
+//     $('#tie-game').show();
+//   } else if (scoreOne > scoreTwo) {
+//     $('#winner-name').text(game.player1.name);
+//     $('#winning-player').show();
+//   } else {
+//     $('#winner-name').text(game.player2.name);
+//     $('#winning-player').show();
+//   }
+// }
 function displayWinner(scoreOne, scoreTwo) {
   if(scoreOne == scoreTwo) {
     $('#tie-game').show();
   } else if (scoreOne > scoreTwo) {
     $('#winner-name').text(game.player1.name);
     $('#winning-player').show();
+    cheer.play();
   } else {
     $('#winner-name').text(game.player2.name);
     $('#winning-player').show();
+    cheer.play();
   }
 }
 //////////////////////////
