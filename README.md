@@ -15,7 +15,8 @@ The object of Concentration is to turn over the most pairs of matching cards.
 * When one pair of cards is left, the current player receives the point for the last match and the game ends. 
 * Whichever player has the most points wins.
 
-### Play Here: [http://susanrotondo.github.io/Concentration/]()
+### How to Play: 
+You are welcome to play by clicking [here](http://susanrotondo.github.io/Concentration/) or play by forking the repository and opening  index.html in your browser! The game works best in Chrome and you must be connected to the internet to play.
 
 ### User Stories:
 
@@ -29,6 +30,7 @@ The object of Concentration is to turn over the most pairs of matching cards.
 HTML, CSS, Javascript, jQuery
 
 ### Other:
+Logos created using Adobe Illustrator
 
 Used to shuffle Card order in-DOM: [https://css-tricks.com/snippets/jquery/shuffle-dom-elements/]()
 
@@ -39,9 +41,5 @@ Sound clips: [http://soundbible.com/]()
 
 ### Future Implementations:
 * Multiple difficulty modes
-* Start and end screens
 * In-game quit/start over with pop-up screen
 * Responsive CSS
-
-### Known Issues
-* Some CSS styling issues
